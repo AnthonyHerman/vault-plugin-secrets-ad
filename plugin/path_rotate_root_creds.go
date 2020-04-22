@@ -14,7 +14,7 @@ import (
 
 func (b *backend) pathRotateCredentials() *framework.Path {
 	return &framework.Path{
-		Pattern: "rotate-root",
+		Pattern: framework.GenericNameRegex("name") + "/rotate-root",
 		Callbacks: map[logical.Operation]framework.OperationFunc{
 			logical.ReadOperation: b.pathRotateCredentialsUpdate,
 		},
